@@ -69,11 +69,48 @@ module.exports = {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
+        'wobble-dance': {
+          '0%': { transform: 'translate(0px, 0px) rotate(0deg) scale(1)' },
+          '12.5%': {
+            transform: 'translate(-1px, 0px) rotate(-12deg) scale(1.1)',
+          },
+          '25%': {
+            transform: 'translate(-2px, 0px) rotate(-24deg) scale(1.2)',
+          },
+          '37.5%': {
+            transform: 'translate(-1px, 0px) rotate(-12deg) scale(1.1)',
+          },
+          '50%': { transform: 'translate(0px, 0px) rotate(0) scale(1)' },
+          '62.5%': {
+            transform: 'translate(1px, 0px) rotate(12deg) scale(1.1)',
+          },
+          '75%': { transform: 'translate(2px, 0px) rotate(24deg) scale(1.2)' },
+          '87.5%': {
+            transform: 'translate(1px, 0px) rotate(12deg) scale(1.1)',
+          },
+          '100%': { transform: 'translate(0px, 0px) rotate(0) scale(1)' },
+        },
+        shake: {
+          '0%': { transform: 'translate(1px, 1px) rotate(0deg)' },
+          '10%': { transform: 'translate(-1px, -2px) rotate(-1deg)' },
+          '20%': { transform: 'translate(-3px, 0px) rotate(1deg)' },
+          '30%': { transform: 'translate(3px, 2px) rotate(0deg)' },
+          '40%': { transform: 'translate(1px, -1px) rotate(1deg)' },
+          '50%': { transform: 'translate(-1px, 2px) rotate(-1deg)' },
+          '60%': { transform: 'translate(-3px, 1px) rotate(0deg)' },
+          '70%': { transform: 'translate(3px, 1px) rotate(-1deg)' },
+          '80%': { transform: 'translate(-1px, -1px) rotate(1deg)' },
+          '90%': { transform: 'translate(1px, 2px) rotate(0deg)' },
+          '100%': { transform: 'translate(1px, -2px) rotate(-1deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'background-flow': 'background-flow 5s ease infinite',
+        'background-flow': 'background-flow 5s ease-in-out infinite',
+        'wobble-dance':
+          'wobble-dance 1s cubic-bezier(0.560, 0.005, 0.110, 1.650) infinite',
+        shake: 'shake 0.5s cubic-bezier(.36,.07,.19,.97) infinite',
       },
       fontFamily: {
         display: ['var(--font-pokemon)'],

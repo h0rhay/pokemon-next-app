@@ -16,21 +16,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <main
-            className="w-full bg-[size:150%_150%]
+            className="w-full bg-[size:200%_200%]
               bg-gradient-radial
-              from-[#b3dcff]
-              via-[#b6fbff]
-              to-[#fff2b0]
+              from-[#c6e4ff]
+              to-[#fff7cf]
               animate-background-flow"
           >
             <div
-              className="w-full bg-[size:150%_150%] 
+              className="w-full bg-[size:200%_200%] 
               dark:bg-gradient-radial
-              from-[#232a3e]
-              via-[#2b3956]
-              to-[#3a83cd]
+              from-[#121829]
+              to-[#193e63]
               animate-background-flow"
             >
               <Header />

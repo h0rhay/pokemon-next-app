@@ -3,9 +3,14 @@ import { capitalizedString } from '@/lib/utils/capitalizedString';
 interface FilterProps {
   filterType: string;
   setFilterType: React.Dispatch<React.SetStateAction<string>>;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export function Filter({ filterType, setFilterType }: FilterProps) {
+export function Filter({
+  filterType,
+  setFilterType,
+  setCurrentPage,
+}: FilterProps) {
   const pokemonTypes = [
     { type: 'normal', color: 'neutral' },
     { type: 'grass', color: 'green' },
@@ -59,8 +64,11 @@ export function Filter({ filterType, setFilterType }: FilterProps) {
                 : `${
                     colorVariants[type.color as keyof typeof colorVariants]
                   } opacity-60 hover:opacity-100`
-            }  font-bold py-2 px-4 rounded-3xl  transition-colors border border-white dark:border-none`}
-            onClick={() => setFilterType(type.type)}
+            }  font-bold py-2 px-4 rounded-3xl  transition-colors border-2 border-white `}
+            onClick={() => {
+              setFilterType(type.type);
+              setCurrentPage(1);
+            }}
           >
             {capitalizedString(type.type)}
           </button>

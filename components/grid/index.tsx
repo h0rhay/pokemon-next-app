@@ -46,6 +46,7 @@ export function Grid({ pokemonList }: GridProps) {
     const filteredList = pokemonList.filter((pokemon: Pokemon) =>
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
+
     if (filterType) {
       const fetchPokemonTypes = async () => {
         const pokemonTypes = await Promise.all(
@@ -71,12 +72,16 @@ export function Grid({ pokemonList }: GridProps) {
   return (
     <>
       <section className="mx-auto lg:max-w-5xl">
-        <h3 className={`text-2xl pb-2 text-center`}>Name search:</h3>
+        <h3 className={`text-2xl pb-4 text-center`}>Name search:</h3>
         <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </section>
       <section className="mx-auto lg:max-w-4xl">
         <h3 className="text-2xl pt-12 pb-4 text-center">Pokemon types:</h3>
-        <Filter filterType={filterType} setFilterType={setFilterType} />
+        <Filter
+          filterType={filterType}
+          setFilterType={setFilterType}
+          setCurrentPage={setCurrentPage}
+        />
       </section>
       <section className="mx-auto lg:max-w-5xl mb4 pb-20">
         <h2 className="text-3xl pt-12 pb-4 text-center font-bold">

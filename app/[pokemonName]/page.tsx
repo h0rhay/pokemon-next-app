@@ -28,8 +28,8 @@ export default async function PokemonPage({
   const { pokemonName } = params;
   const pokemonObject: PokemonObject = await getPokemon(pokemonName);
   return (
-    <main className="mx-auto lg:max-w-3xl text-center pb-20">
-      <article className="mt-12 rounded-lg border border-gray-200 dark:border-gray-500 px-5 py-12">
+    <main className="mx-auto lg:max-w-3xl text-center pb-20 h-screen">
+      <article className="mt-12 rounded-lg border border-neutral-50 dark:border-gray-500 px-5 py-12">
         <Heading className="text-4xl text-bold pt-4" size={1} primary={false}>
           {capitalizedString(pokemonName)}
         </Heading>
@@ -39,6 +39,7 @@ export default async function PokemonPage({
               pokemonObject.sprites.other['official-artwork'].front_default
             }
             name={pokemonName}
+            className="hover:animate-shake"
           />
         </div>
         <h2 className="text-2xl font-bold">Types:</h2>

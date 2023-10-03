@@ -9,7 +9,9 @@ interface SearchProps {
 export function SearchBar({ searchText, setSearchText }: SearchProps) {
   return (
     <div className="grid w-full max-w-sm items-center gap-1.5 m-auto">
-      <Label htmlFor="pokemonName">Name</Label>
+      <Label htmlFor="pokemonName" className="sr-only">
+        Name
+      </Label>
       <Input
         type="text"
         value={searchText}
@@ -19,6 +21,7 @@ export function SearchBar({ searchText, setSearchText }: SearchProps) {
           setSearchText(e.target.value)
         }
         autoComplete="off"
+        className="border-2 border-neutral-100 rounded-lg px-4 py-2 transition-colors hover:border-neutral-200 hover:bg-gray-100 hover:dark:border-neutral-50 hover:dark:bg-neutral-800/30"
       />
     </div>
   );

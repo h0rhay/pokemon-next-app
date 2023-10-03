@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 describe('Filter', () => {
   it('renders all filter buttons', () => {
     const { getByText } = render(
-      <Filter filterType="normal" setFilterType={() => {}} />
+      <Filter filterType="normal" setFilterType={() => {}} setCurrentPage={() => {}} />
     );
 
     expect(getByText('Normal')).toBeInTheDocument();
@@ -29,7 +29,7 @@ describe('Filter', () => {
   it('calls setFilterType when a filter button is clicked', () => {
     const setFilterType = jest.fn();
     const { getByText } = render(
-      <Filter filterType="normal" setFilterType={setFilterType} />
+      <Filter filterType="normal" setFilterType={setFilterType} setCurrentPage={() => {}} />
     );
 
     fireEvent.click(getByText('Grass'));
