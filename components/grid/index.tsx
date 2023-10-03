@@ -6,6 +6,8 @@ import { Filter } from '../filter';
 import { SearchBar } from '../searchBar';
 import { GetPokemonCard } from '../getPokemonCard';
 import { Pagination } from '../pagination';
+import { usePagination } from '@/lib/hooks/usePagination';
+
 
 interface Pokemon {
   name: string;
