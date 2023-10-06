@@ -48,9 +48,7 @@ export function Pagination({
           </button>
         </li>
         <li className="page-item flex-grow text-center">
-          <p className="page-link">
-            {`Page ${page} of ${totalPages}`}
-          </p>
+          <p className="page-link">{`Page ${page} of ${totalPages}`}</p>
         </li>
         <li className="page-item ml-auto">
           <button

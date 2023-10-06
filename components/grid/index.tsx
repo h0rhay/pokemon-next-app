@@ -1,13 +1,10 @@
 'use client';
-
-import { useState, useEffect } from 'react';
-import { getPokemon } from '@/lib/pokemonAPI';
+import { useState } from 'react';
 import { Filter } from '../filter';
 import { SearchBar } from '../searchBar';
 import { GetPokemonCard } from '../getPokemonCard';
 import { Pagination } from '../pagination';
-import { usePagination } from '@/lib/hooks/usePagination';
-
+import { usePokemon } from '@/app/context/PokemonProvider';
 
 interface Pokemon {
   name: string;
@@ -20,56 +17,46 @@ interface Pokemon {
 }
 
 interface GridProps {
-  pokemonList: Pokemon[];
+  pokemonData: Pokemon[];
 }
 
-export function Grid({ pokemonList }: GridProps) {
-  const [searchText, setSearchText] = useState<string>('');
-  const [filteredPokemonList, setFilteredPokemonList] = useState<Pokemon[]>([]);
-  const [filterType, setFilterType] = useState<string>('');
-  const [currentPage, setCurrentPage] = useState<number>(1);
+export function Grid({ pokemonData }: GridProps): JSX.Element {
+  const [searchText, setSearchText] = useState('');
+  const [filterType, setFilterType] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(12);
 
-  const itemsPerPage = 12;
-  const totalPages = Math.ceil(filteredPokemonList.length / itemsPerPage);
+  // filter pokemon by type
+  const filterByType = (pokemonData: Pokemon[], type: string) => {
+    const filteredList = pokemonData.filter((pokemon) =>
+      pokemon.types.some((t) => t.type.name === type)
+    );
+    return filteredList;
+  };
+  const filteredPokemonList = filterType
+    ? filterByType(pokemonData, filterType)
+    : pokemonData;
 
+  // search pokemon by name
+  const searchedPokemonList = filteredPokemonList.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  // get current items to display on the current page
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
-  const currentItems = filteredPokemonList.slice(
+  const currentItems = searchedPokemonList.slice(
     indexOfFirstItem,
     indexOfLastItem
   );
 
+  // get total pages for pagination
+  const totalPages = Math.ceil(searchedPokemonList.length / itemsPerPage);
+
+  // handle page change for pagination
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
-
-  useEffect(() => {
-    const filteredList = pokemonList.filter((pokemon: Pokemon) =>
-      pokemon.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-
-    if (filterType) {
-      const fetchPokemonTypes = async () => {
-        const pokemonTypes = await Promise.all(
-          filteredList.map(async (pokemon: Pokemon) => {
-            const data = await getPokemon(pokemon.name);
-            return data.types.map(
-              (type: { type: { name: string } }) => type.type.name
-            );
-          })
-        );
-        setFilteredPokemonList(
-          filteredList.filter((pokemon: Pokemon, index) =>
-            pokemonTypes[index].includes(filterType)
-          )
-        );
-      };
-      fetchPokemonTypes();
-    } else {
-      setFilteredPokemonList(filteredList);
-    }
-  }, [searchText, pokemonList, filterType]);
 
   return (
     <>
