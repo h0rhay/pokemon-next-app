@@ -5,24 +5,6 @@ import { usePokemon } from './context/PokemonProvider';
 import { getPokemonList, getPokemon } from '@/lib/pokemonAPI';
 import { Banner } from '@/components/banner';
 
-// write grid props interface here
-// add it to the type error at bottom of this file
-interface PokemonList {
-  name: string;
-  url: string;
-}
-
-interface PokemonData {
-  name: string;
-  url: string;
-  image: string;
-  types: {
-    type: {
-      name: string;
-    };
-  }[];
-}
-
 async function getAppData() {
   const pokemonList = await getPokemonList();
   const pokemonData = await Promise.all(
