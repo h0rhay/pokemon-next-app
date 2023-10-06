@@ -23,22 +23,22 @@ interface PokemonObject {
 export default async function PokemonPage({
   params,
 }: {
-  params: { pokemonName: string };
+  params: { pokemon: string };
 }) {
-  const { pokemonName } = params;
-  const pokemonObject: PokemonObject = await getPokemon(pokemonName);
+  const { pokemon } = params;
+  const pokemonObject: PokemonObject = await getPokemon(pokemon);
   return (
     <main className="mx-auto lg:max-w-3xl text-center pb-20 h-screen">
       <article className="mt-12 rounded-lg border border-neutral-50 dark:border-gray-500 px-5 py-12">
         <Heading className="text-4xl text-bold pt-4" size={1} primary={false}>
-          {capitalizedString(pokemonName)}
+          {capitalizedString(pokemon)}
         </Heading>
         <div className="relative w-80 h-80 m-4 mx-auto">
           <Img
             image={
               pokemonObject.sprites.other['official-artwork'].front_default
             }
-            name={pokemonName}
+            name={pokemon}
             className="hover:animate-shake"
           />
         </div>
@@ -62,6 +62,6 @@ export default async function PokemonPage({
 export async function generateStaticParams() {
   const pokemonPages = await getPokemonList();
   return pokemonPages.map((pokemon) => ({
-    pokemonName: pokemon.name,
+    pokemon: pokemon.name,
   }));
 }

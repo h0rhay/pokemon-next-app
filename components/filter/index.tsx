@@ -74,6 +74,12 @@ export function Filter({
           </button>
         );
       })}
+      <button
+        className="font-bold py-2 px-4 rounded-3xl  transition-colors border-2 border-white"
+        onClick={() => setFilterType('')}
+      >
+        Reset
+      </button>
     </nav>
   );
 }
