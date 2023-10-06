@@ -37,17 +37,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// interface LayoutProps {
-//   children: React.ReactNode;
-// }
-
-// export function Layout({ children }: LayoutProps) {
-//   return (
-//       <div className="">
-//           <main className="">
-//               {children}
-//           </main>
-//       </div>
-//   );
-// }
