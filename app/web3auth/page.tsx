@@ -1,3 +1,4 @@
+"use client";
 import { useWeb3 } from "@3rdweb/hooks";
 
 export default function Web3AuthPage() {
@@ -11,6 +12,8 @@ export default function Web3AuthPage() {
             </>
         )
     } else if(address) {
+        console.log('Address:', address);
+        console.log('Chain ID:', chainId);
         return (
             <>
                 <h1>Connected to {chainId}</h1>
