@@ -1,5 +1,4 @@
 "use client";
-
 import { ThemeProvider } from '@/app/context/ThemeProvider';
 import { PokemonProvider } from '@/app/context/PokemonProvider';
 

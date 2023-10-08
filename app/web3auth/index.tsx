@@ -2,7 +2,9 @@ import { useWeb3 } from "@3rdweb/hooks";
 
 export default function Web3AuthPage() {
     const {address, chainId, connectWallet, error} = useWeb3();
+
     if(error) {
+        console.error('Error:', error);
         return (
             <>
                 <h1>Error: {error.message}</h1>
