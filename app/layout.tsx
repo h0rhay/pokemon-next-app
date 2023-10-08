@@ -1,8 +1,8 @@
-"use client";
+'use client';
 import { ThemeProvider } from '@/app/context/ThemeProvider';
 import { PokemonProvider } from '@/app/context/PokemonProvider';
 
-import "regenerator-runtime/runtime";
+import 'regenerator-runtime/runtime';
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
 
 import './globals.css';
