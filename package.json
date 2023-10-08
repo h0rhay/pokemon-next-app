@@ -11,10 +11,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@3rdweb/hooks": "^1.9.2",
     "@next/font": "^13.5.3",
     "@radix-ui/react-label": "^2.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "encoding": "^0.1.13",
     "lucide-react": "^0.279.0",
     "next": "latest",
     "next-cloudinary": "^4.22.0",
