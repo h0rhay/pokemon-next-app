@@ -1,4 +1,5 @@
 'use client';
+import { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@/app/context/ThemeProvider';
 import { PokemonProvider } from '@/app/context/PokemonProvider';
 
@@ -8,21 +9,22 @@ import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
 import './globals.css';
 import { Header } from '@/components/header';
 
+type Props = {
+  children: React.ReactNode;
+};
+
 const supportedChainIds = [1, 5];
 const connectors = {
   injected: {},
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren<Props>) {
   return (
     <html lang="en">
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <PokemonProvider>
+            {/* @ts-ignore */} 
             <ThirdwebWeb3Provider
               connectors={connectors}
               supportedChainIds={supportedChainIds}
