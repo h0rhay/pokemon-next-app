@@ -9,7 +9,7 @@ export default function Web3AuthPage() {
       {error ? (
         <h1>Error: {error.message}</h1>
       ) : address ? (
-        <>
+        <div className="h-96">
           <h1 className="text-2xl font-bold mb-4">
             Web3 Wallet Connection details:
           </h1>
@@ -19,9 +19,9 @@ export default function Web3AuthPage() {
           <p className="text-xl font-bold mb-4">
             Connected to chain ID: <code className="font-light">{chainId}</code>
           </p>
-        </>
+        </div>
       ) : (
-        <>
+        <div className="h-96">
           <h1 className="text-2xl font-bold mb-4">
             Connect to your MetaMask wallet:
           </h1>
@@ -31,7 +31,7 @@ export default function Web3AuthPage() {
           >
             Connect
           </button>
-        </>
+        </div>
       )}
     </section>
   );
