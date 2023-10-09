@@ -13,7 +13,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 There are a few interesting points to highlight:
 - The app main image uses Cloudinary, and specifically the removeBG functionality. Its done a half decent job of removing the background image via AI.. COOL 😎
-- Its mobile first so looks fairly decent on all screens.
+- Its mobile first so looks fairly decent on all screen sizes.
 - A few interactions and effects have been added, mostly on hover. In order to add a bit of sparkle and delight to the user. ✨
 - The list view has a nice 'dancing' animation on the pokemon images, in the style of the 'Charmander dance'. 🕺
 - The main pokemon pages have a shake animation as if the character is being tickled.
