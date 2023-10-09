@@ -18,23 +18,13 @@ interface PokemonListResponse {
 }
 
 export async function getPokemonList(): Promise<Pokemon[]> {
-  try {
-    const response = await fetch(`${POKEMON_API}pokemon?limit=151&offset=0`);
-    const data: PokemonListResponse = await response.json();
-    return data.results;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
+  const response = await fetch(`${POKEMON_API}pokemon?limit=151&offset=0`);
+  const data: PokemonListResponse = await response.json();
+  return data.results;
 }
 
 export async function getPokemon(name: string) {
-  try {
-    const response = await fetch(`${POKEMON_API}pokemon/${name}`);
-    const data: Pokemon = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
+  const response = await fetch(`${POKEMON_API}pokemon/${name}`);
+  const data = await response.json();
+  return data;
 }

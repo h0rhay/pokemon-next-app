@@ -5,7 +5,7 @@ import { ThemeToggle } from '../themeToggle';
 // Define a new type that includes the title prop
 type IconProps = LucideProps & { title?: string };
 
-// Extend the Home, Cog & Wallet components to accept the new prop
+// Extend the Home and Cog components to accept the new prop
 const Home = (props: IconProps) => <HomeIcon {...props} />;
 const Cog = (props: IconProps) => <CogIcon {...props} />;
 const Wallet = (props: IconProps) => <WalletIcon {...props} />;
