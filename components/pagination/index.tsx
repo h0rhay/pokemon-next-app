@@ -38,11 +38,10 @@ export function Pagination({
         <li className="page-item">
           <button
             onClick={handleButtonClick}
-            className="page-link"
+            className={`page-link ${page === 1 ? `opacity-50` : `opacity-100`}`}
             aria-label="Previous"
             data-button="previous"
             disabled={page === 1}
-            style={{ opacity: page === 1 ? 0.5 : 1 }}
           >
             <ChevronLeftCircle size={24} />
           </button>
@@ -53,11 +52,10 @@ export function Pagination({
         <li className="page-item ml-auto">
           <button
             onClick={(e) => handleButtonClick(e)}
-            className="page-link"
+            className={`page-link ${page === totalPages ? `opacity-50`: `opacity-100`}`}
             aria-label="Next"
             data-button="next"
             disabled={page === totalPages}
-            style={{ opacity: page === totalPages ? 0.5 : 1 }}
           >
             <ChevronRightCircle size={24} />
           </button>

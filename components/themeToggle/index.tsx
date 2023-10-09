@@ -15,6 +15,8 @@ export function ThemeToggle() {
   // If not mounted, don't show anything
   if (!mounted) return null;
 
+  // Could create a hook for this, but only used here
+
   return (
     <button
       aria-label="Toggle Light/Dark Mode"
