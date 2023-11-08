@@ -8,10 +8,10 @@ const PokemonFont = localFont({
 });
 
 interface HeadingProps extends React.HTMLAttributes<HTMLElement> {
-  children: string;
+  children: string | React.ReactNode;
   className: string;
-  size: number;
-  primary: boolean;
+  size?: number;
+  primary?: boolean;
 }
 
 import React from 'react';
