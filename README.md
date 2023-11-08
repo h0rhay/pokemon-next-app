@@ -19,7 +19,6 @@ There are a few interesting points to highlight:
 - The main pokemon pages have a shake animation as if the character is being tickled.
 - SHAME: Had to resort to more use of "use client" than I would have liked, as still getting to grips with Nextjs 13 app router, and its proving tricky to master this new architectural pattern.
 - SHAME: The ThirdwebWeb3Provider would simply not accept children no matter what I tried Typesafe wise. Even an HOC with children setup as accepted types did not work. Which is very odd considering Providers by their very nature should accept children. I sadly had to resort to a much maligned ts-ignore for this, apologies 😔
-- SHAME: I ran out of time to complete a more in depth Web3 integration as per the test requirements, so I hope what I have done is enough as a talking point.
   
 ## Getting Started
 
