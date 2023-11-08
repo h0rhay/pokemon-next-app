@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <Grid pokemonData={pokemonData} />
+      <Grid pokemonData={pokemonData} pokemonList={[]} />
     </>
   );
 }
