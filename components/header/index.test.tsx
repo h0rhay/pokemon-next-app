@@ -5,13 +5,13 @@ import '@testing-library/jest-dom';
 describe('Header', () => {
   it('renders the home link', () => {
     render(<Header />);
-    const homeLink = screen.getByTitle('Home link');
+    const homeLink = screen.getByTitle('homeLink');
     expect(homeLink).toBeInTheDocument();
   });
 
   it('renders the home icon', () => {
     render(<Header />);
-    const homeIcon = screen.getByTitle('home');
+    const homeIcon = screen.getByTitle('iconHome');
     expect(homeIcon).toBeInTheDocument();
   });
 

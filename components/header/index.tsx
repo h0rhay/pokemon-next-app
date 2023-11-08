@@ -13,8 +13,8 @@ const Wallet = (props: IconProps) => <WalletIcon {...props} />;
 export function Header() {
   return (
     <header className="mx-auto lg:max-w-5xl flex justify-between pt-4 mb-12 border-b border-gray-300 dark:border-sky-900">
-      <Link href="/" title="Home link">
-        <Home title="home" className="hover:animate-ping w-10 h-10 p-2" />
+      <Link href="/" title="homeLink">
+        <Home title="iconHome" className="hover:animate-ping w-10 h-10 p-2" />
       </Link>
       <h1 className="text-xl font-bold mt-2">Pokemon Next App</h1>
       <div className="flex">

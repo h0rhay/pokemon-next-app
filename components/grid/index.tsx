@@ -6,7 +6,7 @@ import { GetPokemonCard } from '../getPokemonCard';
 import { Pagination } from '../pagination';
 import { usePokemon } from '@/app/context/PokemonProvider';
 
-interface Pokemon {
+export interface Pokemon {
   name: string;
   url: string;
   types: {
@@ -18,6 +18,15 @@ interface Pokemon {
 
 interface GridProps {
   pokemonData: Pokemon[];
+  pokemonList: {
+    name: string;
+    url: string;
+    types: {
+      type: {
+        name: string;
+      };
+    }[];
+  }[];
 }
 
 export function Grid({ pokemonData }: GridProps): JSX.Element {
@@ -28,6 +37,9 @@ export function Grid({ pokemonData }: GridProps): JSX.Element {
 
   // filter pokemon by type
   const filterByType = (pokemonData: Pokemon[], type: string) => {
+    if (!pokemonData) {
+      return [];
+    }
     const filteredList = pokemonData.filter((pokemon) =>
       pokemon.types.some((t) => t.type.name === type)
     );
@@ -38,9 +50,12 @@ export function Grid({ pokemonData }: GridProps): JSX.Element {
     : pokemonData;
 
   // search pokemon by name
-  const searchedPokemonList = filteredPokemonList.filter((pokemon) =>
+  const searchedPokemonList = filteredPokemonList
+  ?
+  filteredPokemonList.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  )
+  : [];
 
   // get current items to display on the current page
   const indexOfLastItem = currentPage * itemsPerPage;
