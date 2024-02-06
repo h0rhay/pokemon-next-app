@@ -16,7 +16,7 @@ export function Header() {
       <Link href="/" title="homeLink">
         <Home title="iconHome" className="hover:animate-ping w-10 h-10 p-2" />
       </Link>
-      <h1 className="text-xl font-bold mt-2">Pokemon Next App</h1>
+      <h1 className="text-xl font-bold mt-2">Pokemon Next App Test</h1>
       <div className="flex">
       <Link href="/web3auth" title="Web3 auth link">
         <Wallet title="home" className="w-10 h-10 p-2" />
